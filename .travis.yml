@@ -1,7 +1,15 @@
 language: node_js
 node_js:
-  - '12'
-before_script:
-  - npm ci
+  - "8"
+dist: trusty
+sudo: false
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  chrome: stable
+
 script:
-  - npm test
+  - npm run test
