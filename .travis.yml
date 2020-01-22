@@ -1,24 +1,9 @@
-
-dist: trusty
-sudo: false
-
 language: node_js
 node_js:
   - '8'
-
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
-
-cache:
-  directories:
-    - ./node_modules
-
-install:
+  - '10'
+  - '12'
+before_script:
   - npm ci
-
 script:
-  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - npm test
