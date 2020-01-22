@@ -1,12 +1,15 @@
-language: node_js
-node_js:
-  - "9"
 dist: trusty
 sudo: required
-branches:
-  only:
-  - master
+language: node_js
+node_js:
+  - "10"
+global:
+  – DBUS_SESSION_BUS_ADDRESS=/dev/null
+  – DISPLAY=:99.0
+  – CHROME_BIN=chromium-browser
 before_script:
-  - npm install -g @angular/cli
+  – sh -e /etc/init.d/xvfb start
+install:
+  - npm install
 script:
 - npm test
